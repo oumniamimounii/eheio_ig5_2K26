@@ -15,4 +15,9 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+    #[Route('/index',name: 'app_index')]
+    public function Welcome():Response
+    {
+        return new Response("Hello World!");
+    }
 }
