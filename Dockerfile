@@ -48,7 +48,7 @@ RUN ls -l /usr/local/bin
 RUN ls -l /var/www/html
 
 # Install project dependencies
-RUN composer install
+RUN composer install --no-interaction --no-scripts --optimize-autoloader
 
 # Expose port 8000 and start php-fpm server
 EXPOSE 8000

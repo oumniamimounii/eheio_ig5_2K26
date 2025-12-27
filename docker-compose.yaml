@@ -8,9 +8,9 @@ services:
     volumes:
       - .:/var/www/html
     working_dir: /var/www/html
-    command: php -S 0.0.0.0:8000 -t public
+    command: php -S 0.0.0.0:8080 -t public
     ports:
-      - "8000:8000"
+      - "8080:8080"
     networks:
       - eheio-network
 
