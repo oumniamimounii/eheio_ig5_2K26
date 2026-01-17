@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Ajouter un produit{% endblock %}
+
+{% block body %}
+<style>
+    .product-wrapper { 
+        margin: 2em auto; 
+        max-width: 600px; 
+        width: 95%; 
+    }
+    .product-form {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .product-form h1 {
+        color: #333;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .alert-success {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: #d4edda;
+        color: #155724;
+    }
+</style>
+
+<div class="product-wrapper">
+    <div class="product-form">
+        <h1> Ajouter un produit</h1>
+        
+        {% for message in app.flashes('success') %}
+            <div class="alert-success"> {{ message }}</div>
+        {% endfor %}
+        
+        {{ form(form) }}
+    </div>
+</div>
+{% endblock %}

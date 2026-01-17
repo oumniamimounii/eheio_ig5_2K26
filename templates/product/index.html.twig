@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des produits{% endblock %}
+
+{% block body %}
+<style>
+    .product-list {
+        margin: 2em auto;
+        max-width: 900px;
+        width: 95%;
+    }
+    .product-list h1 {
+        color: #333;
+    }
+    table {
+        width: 100%;
+        background: white;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th {
+        background: #007bff;
+        color: white;
+        padding: 15px;
+        text-align: left;
+    }
+    td {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    .btn-add {
+        display: inline-block;
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="product-list">
+    <h1>Liste des produits</h1>
+    
+    <a href="{{ path('product_add') }}" class="btn-add">Ajouter un produit</a>
+    
+    {% if products is empty %}
+        <p>Aucun produit pour le moment.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.label }}</td>
+                    <td>{{ product.price }} €</td>
+                    <td>{{ product.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% endblock %}
